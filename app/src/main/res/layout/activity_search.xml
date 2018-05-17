@@ -27,7 +27,7 @@
     <TextView
         android:id="@+id/searchRepositoryTextView"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="20dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -38,7 +38,7 @@
         app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.143" />
 
     <Spinner
         android:id="@+id/languageSpinner"
@@ -62,10 +62,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Pick Langauge"
+        android:text="Pick Popular Langauge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.276"
+        app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.342" />

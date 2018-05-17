@@ -8,16 +8,26 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
+    //Variables
     private Spinner spinner;
     private Manager manager;
     private String languageString;
     private EditText repositoryNameEditText;
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        manager.setFirstTime(true);
+        manager.setPage(1);
+        manager.setRepositoryArrayList(new ArrayList<Repository>());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,7 +55,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    //Spinner Methods
+    //This spinner method gets the item selected in the language drop down menu
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
@@ -58,15 +68,22 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    //When search button is pressed
-    public void searchButton(View view)
+    //When search button is pressed it gets the first page of repositories and goes to the next activity
+    public void searchButton(final View view)
     {
         manager.getRepositories(repositoryNameEditText.getText().toString(), languageString, new RepositoryCallback()
         {
             @Override
-            public void onFailure(IOException e)
+            public void onFailure(Exception e)
             {
-
+                view.post(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(getApplicationContext(), "API rate limit exceeded", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
 
             @Override
@@ -79,12 +96,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-        manager.setRepositoryArrayList(new ArrayList<Repository>());
-    }
+
 
 
 }

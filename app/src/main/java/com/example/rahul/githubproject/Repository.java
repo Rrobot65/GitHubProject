@@ -11,6 +11,7 @@ public class Repository
     private String language;
     private String starGazers;
     private String updatedDate;
+    private String url;
 
     public Repository(String name, String description, String language, String starGazers, String updatedDate)
     {
@@ -19,8 +20,14 @@ public class Repository
         this.language = language;
         this.starGazers = starGazers;
         this.updatedDate = updatedDate;
+        url = "https://github.com/" + name;
     }
 
+    //All setters and getters for each variable
+    public String getUrl()
+    {
+        return url;
+    }
 
     public String getName()
     {

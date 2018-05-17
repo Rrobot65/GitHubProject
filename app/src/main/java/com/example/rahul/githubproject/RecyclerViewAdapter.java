@@ -21,6 +21,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     {
         public TextView nameTextView, descriptionTextView, languageTextView, updatedDateTextView, starGazersTextView;
 
+        //Gets the text views from my recycler_view_row.xml file
         public MyViewHolder(View view)
         {
             super(view);
@@ -37,6 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.repositoryArrayList = repositoryArrayList;
     }
 
+    //Displays the TextViews and the one ImageView on the screen
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
@@ -46,6 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return new MyViewHolder(view);
     }
 
+    //Go through the repository array list and set all the text views with the repository information
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position)
     {
@@ -65,3 +68,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return repositoryArrayList.size();
     }
 }
+
+

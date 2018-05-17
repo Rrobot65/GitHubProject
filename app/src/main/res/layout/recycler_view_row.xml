@@ -32,9 +32,12 @@
         android:id="@+id/languageTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_="@id/updatedDateTextView"
-        android:textSize="11sp" />
-s
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/updatedDateTextView"
+        android:layout_marginLeft="20dp"
+        android:textSize="11sp"
+        android:textColor="@color/blue" />
+
     <TextView
         android:id="@+id/starGazersTextView"
         android:layout_width="wrap_content"
@@ -42,12 +45,20 @@ s
         android:layout_alignParentRight="true"
         android:textSize="11sp" />
 
+    <ImageView
+        android:id="@+id/starImageView"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_toLeftOf="@+id/starGazersTextView"
+        android:background="@drawable/star" />
+
     <TextView
         android:id="@+id/updatedDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/descriptionTextView"
-        android:textSize="11sp" />
+        android:textSize="11sp"
+        android:textColor="@color/red"/>
     
 
 </RelativeLayout>
